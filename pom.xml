@@ -62,7 +62,9 @@
 				<version>0.4.13</version>
 				<configuration>
 					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-					<dockerDirectory>src/main/docker</dockerDirectory>
+					<baseImage>java</baseImage>
+					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar","--spring.data.mongodb.host=192.168.0.15"]</entryPoint>
+					<!-- copy the service's jar file from target into the root directory of the image -->
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
