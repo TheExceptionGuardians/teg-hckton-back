@@ -1,6 +1,5 @@
 package com.teg.messenger.dao.Impl;
 
-import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoCollection;
@@ -8,6 +7,7 @@ import com.mongodb.client.MongoDatabase;
 import com.teg.messenger.dao.MongoDao;
 import com.teg.messenger.model.Message;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -29,6 +29,8 @@ public class MongoDaoImpl implements MongoDao {
             Message message = new Message();
             message.setMsg(document.getString("msg"));
             message.setCreated(document.getDate("created"));
+            ObjectId id = document.getObjectId("_id");
+            message.setId(id.toString());
             messages.add(message);
         }
 
