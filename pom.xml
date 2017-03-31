@@ -63,7 +63,7 @@
 				<configuration>
 					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
 					<baseImage>java</baseImage>
-					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar","--spring.data.mongodb.host=192.168.0.15","--server.port=8080"]</entryPoint>
+					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar","--spring.data.mongodb.host=192.168.1.41","--server.port=8080"]</entryPoint>
 					<!-- copy the service's jar file from target into the root directory of the image -->
 					<resources>
 						<resource>
